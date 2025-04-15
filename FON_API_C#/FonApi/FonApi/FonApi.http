@@ -1,0 +1,6 @@
+@FonApi_HostAddress = http://localhost:5205
+
+GET {{FonApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

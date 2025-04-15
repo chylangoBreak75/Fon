@@ -1,0 +1,54 @@
+<div style="margin: 50px">
+
+  <div style="margin: 50px">
+    <h2>Applications List</h2>
+  </div>
+
+  <table class="table table-stripped">
+    <tr>
+      <th>Id</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Status</th>
+    </tr>
+    <tr *ngFor="let app of listApps">
+      <td>{{ app.Id }}</td>
+      <td>{{ app.Date }}</td>
+      <td>{{ app.strType }}</td>
+      <td>{{ app.strStatus }}</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">New application</button>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add New Application</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form autocomplete="off" [formGroup]="formSenApp">
+        <div class="mb-3">
+
+        <label for="selAppType">Select Application Type</label>
+        <br>
+        <select id="selAppType" formControlName="type">
+          <option *ngFor="let _type of listAppTypes" [value]="_type.IdAppType">{{ _type.TypeAppName }}</option>
+        </select>
+        <br><br>
+        <label for="selAppType">Please, type description:</label>
+        <br>
+        <textarea id="txtTypeDescription" formControlName="description"></textarea>
+      </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" [disabled]="formSenApp.invalid" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+</div>
+
+
+<pre>{{ closeResult() }}</pre>

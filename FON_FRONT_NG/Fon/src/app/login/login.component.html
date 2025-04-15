@@ -1,0 +1,39 @@
+<div style="margin-top: 150px;">
+  <div class="d-flex justify-content-center vh-50">
+    <div class="d-flex align-items-center justify-content-center vh-50" style="border:1px solid darkgray; width:500px; height: 300px">
+
+      <form autocomplete="off" [formGroup]="formLogin" (ngSubmit)="onClickLogin($event)">
+                <div class="container">
+                  <div class="form-group">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" class="form-control" placeholder="Enter Username" formControlName="uname" required value="Rene">
+                  </div>
+                  <div class="form-group">
+                  <label for="psw"><b>Password</b></label>
+                    <input type="password" class="form-control" placeholder="Enter Password" formControlName="password" required value="123">
+                  </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="formLogin.invalid">Login</button>
+                </div>
+            </form>
+      </div>
+  </div>
+
+  <div>
+    <table>
+      <tr>
+        <td>Hints:</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span>username</span></td>
+        <td>&nbsp;</td>
+        <td>Rene</td>
+      </tr>
+      <tr>
+        <td><span>Pwd</span></td>
+        <td>&nbsp;</td>
+        <td>123</td>
+      </tr>
+    </table>
+  </div>
+</div>
