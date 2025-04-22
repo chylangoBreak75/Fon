@@ -5,6 +5,12 @@ using System.Data;
 using System.Data.SqlClient;
 using FonApi.Models;
 using System.Text;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Newtonsoft.Json.Linq;
+using FonApi.Kafka;
+using FonApi.Services;
+using Confluent.Kafka;
+using System.ComponentModel.Design;
 
 namespace FonApi.Controllers
 {
@@ -13,10 +19,12 @@ namespace FonApi.Controllers
     public class FonbackController : ControllerBase
     {
         private IConfiguration _configuration;
+        private readonly ChatService _chatService;
 
-        public FonbackController(IConfiguration configuration)
+        public FonbackController(IConfiguration configuration, ChatService chatService)
         {
             _configuration = configuration;
+            _chatService = chatService;
         }
 
         [HttpPost]
@@ -31,8 +39,6 @@ namespace FonApi.Controllers
                 return Ok(new { result= "Accepted" });
             else
                 return Ok(new { result= "Not Accepted" });
-
-
         }
 
         [HttpGet]
@@ -66,18 +72,49 @@ namespace FonApi.Controllers
         [Route("AddApp")]
         public ActionResult AddApp(App app)
         {
-            int res = 0;
-
             var db = new DbApplication(_configuration);
-            res = db.AddApp(app);
 
-            if (res > 0)
+            int nuevoId = -1;
+            nuevoId = db.AddApp(app);
+
+            var confluent = new Kafka.Confluent();
+            confluent.CreateMessage(nuevoId.ToString(), app.Description);
+
+            _ = ReadMessage(nuevoId);
+
+            if (nuevoId > 0)
                 return Ok(new { result = "Accepted" });
             else
-                return Ok(new { result = "Not Accepted" });
+                return Ok(new { result = "ERROR: Not Accepted" });
         }
 
         /// ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        private async Task ReadMessage(int IdApp)
+        {
+            var confluent = new Kafka.Confluent();
+
+            string _red = confluent.ReadMessages();
+            if (_red == "OK_READ")
+            {
+                int res = 0;
+                string message;
+
+                var db = new DbApplication(_configuration);
+                res = db.AppToProcessed(IdApp); //  changes to "processed"
+
+                if (res > 0)
+                    message = "Accepted";
+                //return Ok(new { result = "Accepted" });
+                else
+                    message = "Not Accepted";
+                    //return Ok(new { result = "Not Accepted" });
+
+                string jsonstring = System.Text.Json.JsonSerializer.Serialize(new { type = "[Kafka] Add message", message = message });
+                await _chatService.SendMessage(jsonstring);
+            }
+        }
 
     }
 

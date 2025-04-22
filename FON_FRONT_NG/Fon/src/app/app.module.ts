@@ -8,6 +8,10 @@ import { ListComponent } from './list/list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsWebSocketPluginModule } from '@ngxs/websocket-plugin';
+import { KafkaState } from './state/kafka.state';
 
 
 @NgModule({
@@ -22,7 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxsModule.forRoot([KafkaState], { developmentMode: /** !environment.production */ false }),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsWebSocketPluginModule.forRoot({  url: 'ws://localhost:5205/ws' })   // solo es para conectarse al socket
   ],
   providers: [],
   bootstrap: [AppComponent]

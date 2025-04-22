@@ -2,12 +2,18 @@ import { Component, inject, signal, TemplateRef, WritableSignal } from '@angular
 import { AppService } from '../services/app.services';
 import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Select, Store } from '@ngxs/store';   //   select subscriptor a los mensajes (no lo ocupo)
+import { KafkaState } from '../state/kafka.state';
+import { Observable } from 'rxjs';
+import { ConnectWebSocket } from '@ngxs/websocket-plugin';
+
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
+
 export class ListComponent {
   private modalService = inject(NgbModal);
   closeResult: WritableSignal<string> = signal('');
@@ -18,7 +24,11 @@ export class ListComponent {
   listAppTypes : any[];
   listAppStatus : any[];
 
-  constructor(private readonly fb: FormBuilder,
+  //@Select(KafkaState.messages)   obsoleto  //   abajo verdaderos messages
+  kafkaMessages$: Observable<string | undefined> = this.store.select(KafkaState.messages);    // asigan selector
+
+  constructor(private readonly store: Store,
+    private readonly fb: FormBuilder,
     private readonly appService: AppService) {
     this.listApps = [];
     this.listAppTypes = [];
@@ -38,7 +48,7 @@ export class ListComponent {
     this.appService.typeList().subscribe({
       next: (response) => {
         this.listAppTypes = response;
-        console.log(this.listAppTypes);
+        //console.log(this.listAppTypes);
       },
       error: (error) => { console.log(error); this.error = error }
     });
@@ -51,6 +61,22 @@ export class ListComponent {
       error: (error) => { console.log(error); this.error = error }
     });
 
+    this.kafkaMessages$.subscribe({    //  subscripcion y simpre estará escuchando
+      next: (message) => {
+        console.log(message);
+        if(message == "Accepted")
+          this.getList();
+      },
+      error: (error) => console.log(error)
+    });
+
+    this.connect();
+
+
+  }
+
+  connect() {
+    this.store.dispatch(new ConnectWebSocket())     //    plug in   incia la conexion
   }
 
   getList() {
@@ -71,7 +97,7 @@ export class ListComponent {
 			(result) => {
 				this.closeResult.set(`Closed with: ${result}`);
         if(this.formSenApp.valid) {
-          console.log(this.f["description"].value);
+          //console.log(this.f["description"].value);
           const app = {
             type : this.f["type"].value,
             strType: "",
@@ -80,7 +106,7 @@ export class ListComponent {
           };
           this.appService.addApp(app).subscribe({
             next:(response) => {
-              console.log(response);
+              //console.log(response);
               this.formSenApp.reset();
               this.getList();
             },

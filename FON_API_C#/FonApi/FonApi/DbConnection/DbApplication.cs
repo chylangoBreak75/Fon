@@ -7,6 +7,9 @@ using System.Reflection.PortableExecutable;
 using System.Threading;
 using System.Xml.Linq;
 using FonApi.Models;
+using Confluent.Kafka;
+using Microsoft.Extensions.Configuration;
+using Confluent.Kafka;
 
 namespace FonApi.DbConnection
 {
@@ -66,8 +69,8 @@ namespace FonApi.DbConnection
                         var app = new App();
                         app.Id = rdr.GetInt32(0);
                         app.Date = rdr.GetDateTime(1);
-                        app.strType = rdr.GetString(2);
-                        app.strStatus = rdr.GetString(3);
+                        app.strStatus = rdr.GetString(2);
+                        app.strType = rdr.GetString(3);
                         apps.Add(app);
                     }
                 }
@@ -124,7 +127,6 @@ namespace FonApi.DbConnection
             return typeApps;
         }
 
-
         public int AddApp(App newApp)
         {
             int intRes = -1;
@@ -144,5 +146,25 @@ namespace FonApi.DbConnection
 
             return intRes;
         }
+
+        public int AppToProcessed(int idApp)
+        {
+            int intRes = -1;
+
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("AppStatusToProcessed", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@IdApp", idApp));
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                intRes = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            return intRes;
+        }
+
+        
+
     }
 }
