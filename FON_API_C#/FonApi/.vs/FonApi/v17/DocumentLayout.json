@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\git-repository\\FON_API_C#\\FonApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|d:\\git-repository\\fon_api_c#\\fonapi\\fonapi\\controllers\\websocketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|solutionrelative:fonapi\\controllers\\websocketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|d:\\git-repository\\fon_api_c#\\fonapi\\fonapi\\services\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|solutionrelative:fonapi\\services\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|d:\\git-repository\\fon_api_c#\\fonapi\\fonapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|solutionrelative:fonapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|d:\\git-repository\\fon_api_c#\\fonapi\\fonapi\\controllers\\fonbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|solutionrelative:fonapi\\controllers\\fonbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|d:\\git-repository\\fon_api_c#\\fonapi\\fonapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|solutionrelative:fonapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|d:\\git-repository\\fon_api_c#\\fonapi\\fonapi\\controllers\\websocketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|solutionrelative:fonapi\\controllers\\websocketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|d:\\git-repository\\fon_api_c#\\fonapi\\fonapi\\services\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|solutionrelative:fonapi\\services\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3A387F67-E543-4E0A-9E96-E1CF45BAB9F9}|FonApi\\FonApi.csproj|d:\\git-repository\\fon_api_c#\\fonapi\\fonapi\\dbconnection\\dbapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,17 +34,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\git-repository\\FON_API_C#\\FonApi\\FonApi\\Program.cs",
               "RelativeDocumentMoniker": "FonApi\\Program.cs",
-              "ToolTip": "D:\\git-repository\\FON_API_C#\\FonApi\\FonApi\\Program.cs",
-              "RelativeToolTip": "FonApi\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ToolTip": "D:\\git-repository\\FON_API_C#\\FonApi\\FonApi\\Program.cs*",
+              "RelativeToolTip": "FonApi\\Program.cs*",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB4AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T00:18:09.643Z",
               "EditorCaption": ""
@@ -59,25 +59,24 @@
               "RelativeToolTip": "FonApi\\DbConnection\\DbApplication.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAJMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T16:33:42.146Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T16:33:42.146Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "FonbackController.cs",
               "DocumentMoniker": "D:\\git-repository\\FON_API_C#\\FonApi\\FonApi\\Controllers\\FonbackController.cs",
               "RelativeDocumentMoniker": "FonApi\\Controllers\\FonbackController.cs",
               "ToolTip": "D:\\git-repository\\FON_API_C#\\FonApi\\FonApi\\Controllers\\FonbackController.cs",
               "RelativeToolTip": "FonApi\\Controllers\\FonbackController.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAIwBoAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAIwC0AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-18T04:59:56.786Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "WebsocketController.cs",
               "DocumentMoniker": "D:\\git-repository\\FON_API_C#\\FonApi\\FonApi\\Controllers\\WebsocketController.cs",
               "RelativeDocumentMoniker": "FonApi\\Controllers\\WebsocketController.cs",
@@ -85,12 +84,11 @@
               "RelativeToolTip": "FonApi\\Controllers\\WebsocketController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T04:55:23.382Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-18T04:55:23.382Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ChatService.cs",
               "DocumentMoniker": "D:\\git-repository\\FON_API_C#\\FonApi\\FonApi\\Services\\ChatService.cs",
               "RelativeDocumentMoniker": "FonApi\\Services\\ChatService.cs",
@@ -98,8 +96,7 @@
               "RelativeToolTip": "FonApi\\Services\\ChatService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T04:53:29.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-18T04:53:29.044Z"
             },
             {
               "$type": "Document",
